@@ -43,7 +43,7 @@
 	if(session.getAttribute("id")==null){
 		out.print("<a href='index.jsp?page=customer/login.jsp'>Login</a>");
 		out.print("<a href='index.jsp?page=customer/join.jsp'>Join</a>");
-	}else{
+	}else {
 		out.print("<a href='logout.cu'>Logout</a>");
 		out.print("<a href='mypage.cu'>My page</a>");
 	}

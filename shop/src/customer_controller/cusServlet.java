@@ -168,6 +168,7 @@ public class cusServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}else if(command.equals("/logout.cu")) {	//로그아웃
+			session = request.getSession();
 			session.invalidate();
 			response.sendRedirect("index.jsp");
 		}
