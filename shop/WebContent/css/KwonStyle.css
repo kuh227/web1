@@ -1,0 +1,167 @@
+@charset "UTF-8";
+
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+.dropmenu{
+	position: absolute;
+	width: 100%;
+}
+	
+.dropmenu ul li{
+	display: inline-block;
+	text-align: center;
+}
+
+.dropmenu ul li a{
+	display: block;
+	width: 150px;
+	color: black;
+	text-decoration: none;
+	line-height: 60px;
+}
+	
+.dropmenu ul ul{
+	position: absolute;
+	display: none;
+}
+	
+.dropmenu ul ul li{
+	display: block;
+	background: white;
+	color: black;
+}
+
+#menu_title {
+	width:100%;
+	background: white;
+	/* text-align: center; */
+}
+	
+#sidemenu{
+	position: absolute;
+	right: 40px;
+}
+#sidemenu a{
+	color: black;
+	text-decoration: none;
+	margin: 10px;
+	line-height: 60px;
+}
+	
+#container img{
+	max-width: 100%;
+	height: auto;
+}
+#title {
+	position: absolute;
+	top: 20%;
+	left: 50%;
+}
+#button{
+	position: absolute;
+	top: 55%;
+	left: 52%;	
+}
+
+#inner {
+	position: absolute;
+	left: 42%;
+	top: 30%;
+}
+#inner label{
+	display: inline-block;
+	width: 100px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	text-align: right;
+}
+#inner input[type=submit]{
+	position: relative;
+	left: 50%;
+	top: 20px;
+	margin: 10px;
+}
+#list {
+	position: absolute;
+	left: 28%;
+	top: 30%;
+}
+#list table {
+	border-collapse: collapse;
+	border-top: 1px solid black;
+}
+#list table th, td{
+	padding: 10px;
+	border-bottom: 1px solid black;
+}
+#list table td:nth-child(1){
+	width: 400px;
+}
+#list table td:nth-child(2){
+	width: 100px;
+	text-align: center;
+}
+#list table td:nth-child(4){
+	text-align: center;
+}
+#list input[type=button]{
+	position: absolute;
+	margin: 10px;
+	right: 5px;
+}
+#list a{
+	color: black;
+	text-decoration: none;
+}
+#list a:hover{
+	text-decoration: underline;
+}
+#register {
+	position: absolute;
+	left: 35%;
+	top: 30%;
+}
+#register label{
+	display: inline-block;
+	width: 100px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	text-align: right;
+}
+#register input[type=submit]{
+	position: absolute;
+	left: 200px;
+	margin: 10px;
+}
+#register input[type=text]{
+	width: 280px;
+}
+#register input[type=button]{
+	position: absolute;
+	left: 250px;
+	margin: 10px;
+}
+#boDetail{
+	position: absolute;
+	left: 35%;
+	top: 30%;
+}
+#boDetail table{
+	width: 500px;
+}
+
+#boDetail table td:nth-child(1){
+	width: 100px;
+	text-align: center;
+}
+#boDetail table tr:nth-child(3) {
+	height: 200px;
+}
+#doDetail input[type=button]{
+	position: absolute;
+	left: 100px;
+	margin: 50px;
+}

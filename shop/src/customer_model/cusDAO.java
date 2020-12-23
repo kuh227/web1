@@ -1,0 +1,58 @@
+package customer_model;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class cusDAO {
+	public Connection getConnection() throws Exception{
+		String url ="jdbc:mysql://127.0.0.1:3306/mysql?characterEncoding=utf8";
+		String dbid = "root";
+		String dbpw = "";
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection conn = DriverManager.getConnection(url,dbid,dbpw);
+		return conn;
+	}
+	
+	
+	public int join(Connection conn, cusDTO dto)throws SQLException {
+		String sql = "insert into customer(name,id,pw,addr,tel) values(?,?,?,?,?)";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, dto.getName());
+		pstmt.setString(2, dto.getId());
+		pstmt.setString(3, dto.getPw());
+		pstmt.setString(4, dto.getAddr());
+		pstmt.setString(5, dto.getTel());
+		int cnt = pstmt.executeUpdate();
+		return cnt;
+	}
+	
+	public ResultSet login(Connection conn, String id)throws SQLException {
+		String sql = "select name,id,pw,addr,tel from customer where id=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, id);
+		ResultSet rs = pstmt.executeQuery();
+		return rs;
+		}
+	
+	public int update(Connection conn, cusDTO dto)throws SQLException {
+		String sql = "update customer set pw=?, addr=?, tel=? where id=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, dto.getPw());
+		pstmt.setString(2, dto.getAddr());
+		pstmt.setString(3, dto.getTel());
+		pstmt.setString(4, dto.getId());
+		int cnt = pstmt.executeUpdate();
+		return cnt;
+	}
+	
+	public int signout(Connection conn, String id)throws SQLException {
+		String sql = "delete from customer where id=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, id);
+		int cnt = pstmt.executeUpdate();
+		return cnt;
+	}
+}
