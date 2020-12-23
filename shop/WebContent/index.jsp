@@ -12,7 +12,7 @@ if(pagefile==null){
 <html>
 <head>
 <meta charset="UTF-8">
-<title>inputstream</title>
+<title>inputstream4</title>
 <link rel="stylesheet" href="css/KwonSytle.css">
 </head>
 <body>
