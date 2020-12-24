@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="css/KwonStyle">
 </head>
 <body>
 <div id="title">
@@ -18,6 +19,10 @@
 			<input type="password" name="pw" required="required"><br>
 		<input type="submit" value="로그인">
 	</form>
+</div>
+<div id="find">
+	<input type="button" value="아이디 찾기" onclick="location.href='index.jsp?page=customer/searchId.jsp'">
+	<input type="button" value="비밀번호 찾기" onclick="location.href='index.jsp?page=customer/searchPw.jsp'">
 </div>
 </body>
 </html>

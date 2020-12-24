@@ -20,10 +20,13 @@
 	<label for="content">내용</label>
 	<textarea rows="40" cols="40" name="content"></textarea><br>
 	<label for="nal">날짜</label>
-	<input type="date" name="nal" placeholder="yyyy-mm-dd"><br>
+	<input type="date" name="nal" id="now_date" readonly="readonly"><br>
 	<input type="hidden" name="readCount" value="0">
 	<input type="submit" value="등록">
 </form>
 </div>
+<script>
+	document.getElementById('now_date').value = new Date().toISOString().substring(0, 10);;
+</script>
 </body>
 </html>

@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class cusDAO {
 	public Connection getConnection() throws Exception{
@@ -54,5 +55,32 @@ public class cusDAO {
 		pstmt.setString(1, id);
 		int cnt = pstmt.executeUpdate();
 		return cnt;
+	}
+	
+	public String searchId(Connection conn, String name, String tel)throws SQLException {
+		String sql = "select id from customer where name=? and tel=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, name);
+		pstmt.setString(2, tel);
+		ResultSet rs = pstmt.executeQuery();
+		String id=null; 
+		if(rs.next()) {
+			id = rs.getString("id");
+		}
+		return id;
+	}
+	
+	public String searchPw(Connection conn, String id, String name, String tel)throws SQLException {
+		String sql = "select pw from customer where id=? and name=? and tel=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, id);
+		pstmt.setString(2, name);
+		pstmt.setString(3, tel);
+		ResultSet rs = pstmt.executeQuery();
+		String pw=null;
+		if(rs.next()) {
+			pw = rs.getString("pw");
+		}
+		return pw;
 	}
 }

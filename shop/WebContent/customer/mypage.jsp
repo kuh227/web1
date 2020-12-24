@@ -36,7 +36,7 @@ String tel = dto.getTel();
 			<input type="text" id="tel" name="tel" value="<%=tel%>"><br>
 		<input type="submit" value="수정">
 	</form>
-	<form action="signout.cu" method="post">
+	<form action="signout.cu" method="post" onsubmit="return confirm('정말로 탈퇴하시겠습니까?');">
 		<input type="hidden" name="id" value="<%=id%>">
 		<input type="submit" value="회원탈퇴">
 	</form>

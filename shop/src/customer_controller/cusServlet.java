@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -157,7 +158,7 @@ public class cusServlet extends HttpServlet {
 				int cnt = dao.signout(conn, id);
 				session.invalidate();
 				out.print("<script>");
-				out.print("alert('"+cnt+"명 삭제되었습니다.');");
+				out.print("alert('"+cnt+"명 탈퇴되었습니다.');");
 				out.print("location.href='index.jsp';");
 				out.print("</script>");
 			} catch (SQLException e) {
@@ -171,7 +172,59 @@ public class cusServlet extends HttpServlet {
 			session = request.getSession();
 			session.invalidate();
 			response.sendRedirect("index.jsp");
+			
+		}else if(command.equals("/searchId.cu")) {	//아이디 찾기
+			dao = new cusDAO();
+			String name = request.getParameter("name");
+			String tel = request.getParameter("tel");
+			String id=null;
+			try {
+				Connection conn = dao.getConnection();
+				id = dao.searchId(conn, name, tel);
+				if(id!=null){
+					out.print("<script>");
+					out.print("alert('찾으시는 아이디는 "+id+" 입니다.');");
+					out.print("location.href='index.jsp?page=login.jsp';");
+					out.print("</script>");
+				}else{
+					out.print("<script>");
+					out.print("alert('찾는 아이디가 없습니다.');");
+					out.print("location.href='index.jsp?page=customer/searchId.jsp';");
+					out.print("</script>");
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else if(command.equals("/searchPw.cu")) {
+			dao = new cusDAO();
+			String name = request.getParameter("name");
+			String tel = request.getParameter("tel");
+			String id = request.getParameter("id");
+			try {
+				Connection conn = dao.getConnection();
+				String pw = dao.searchPw(conn, id, name, tel);
+				if(pw!=null){
+					out.print("<script>");
+					out.print("alert('찾으시는 비밀번호는 "+pw+" 입니다.');");
+					out.print("location.href='index.jsp?page=customer/login.jsp';");
+					out.print("</script>");
+				}else{
+					out.print("<script>");
+					out.print("alert('입력하신 정보가 일치하지 않습니다.');");
+					out.print("location.href='index.jsp?page=customer/searchPw.jsp';");
+					out.print("</script>");
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
-
 }
