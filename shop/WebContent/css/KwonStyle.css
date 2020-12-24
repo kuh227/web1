@@ -120,6 +120,14 @@
 	margin: 10px;
 	right: 5px;
 }
+#list form{
+	position: absolute;
+	margin: 10px;
+}
+#list input[type=text]{
+  	border: 0;
+  	border-bottom: 2px solid lightgrey;
+}
 #list a{
 	color: black;
 	text-decoration: none;

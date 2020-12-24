@@ -31,6 +31,10 @@
 		}
 		%>
 	</table>
+	<form action="" method="post">
+		<input type="text" name="searchTitle">
+		<input type="submit" value="search">
+	</form>
 	<input type="button" value="글쓰기" onclick="location.href='index.jsp?page=qna/qna.jsp'">
 </div>
 </body>

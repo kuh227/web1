@@ -21,3 +21,10 @@ readCount varchar(100)
 
 select * from board
 alter table board convert to character set utf8
+
+create table product ( --아직 생성전 테이블
+itemNo int primary key,
+itemName varchar(100),
+category varchar(100),
+price int,
+)
